@@ -35,6 +35,15 @@
          "react-app/jest"
       ]
    },
+   "lint-staged": {
+      "**/*.{ts,tsx}": [
+         "eslint  --cache --fix",
+         "bash -c tsc --skipLibCheck --noEmit"
+      ],
+      "**/*.{ts,tsx,json}": [
+         "prettier --write"
+      ]
+   },
    "browserslist": {
       "production": [
          ">0.2%",
