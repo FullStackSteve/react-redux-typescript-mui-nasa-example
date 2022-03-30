@@ -1,0 +1,58 @@
+{
+   "todo": [
+      {
+         "assignedTo": {
+            "name": "Steve Daniels"
+         },
+         "creation_time": "2022-03-30T00:00:01.614Z",
+         "id": "4",
+         "references": [],
+         "title": "Configure react router for draft pages"
+      },
+      {
+         "assignedTo": {
+            "name": "Steve Daniels"
+         },
+         "creation_time": "2022-03-30T00:04:42.289Z",
+         "id": "6",
+         "references": [],
+         "title": "Configure redux store for NASA images"
+      },
+      {
+         "assignedTo": {
+            "name": "Steve Daniels"
+         },
+         "creation_time": "2022-03-30T00:01:00.227Z",
+         "id": "5",
+         "references": [],
+         "title": "NASA API via Axios"
+      }
+   ],
+   "in-progress": [
+      {
+         "assignedTo": {
+            "name": "Steve Daniels"
+         },
+         "creation_time": "2022-03-29T23:58:48.088Z",
+         "id": "2",
+         "references": [],
+         "title": "Configure MUI with draft UI",
+         "details": {
+            "content": "- [ ] Basic theme\n- [ ] Basic Layout component\n- [ ] Rough elements:\n\t- [ ] a picture,\n\t- [ ] a \"Next\" button,\n\t- [ ] a \"Save\" button,\n\t- [ ] a \"Favourites\" link.",
+            "mime": "text/markdown"
+         }
+      }
+   ],
+   "testing": [],
+   "done": [
+      {
+         "assignedTo": {
+            "name": "Steve Daniels"
+         },
+         "creation_time": "2022-03-29T23:58:03.280Z",
+         "id": "1",
+         "references": [],
+         "title": "Nice dev environment"
+      }
+   ]
+}
