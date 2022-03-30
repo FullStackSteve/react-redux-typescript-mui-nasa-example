@@ -8,7 +8,7 @@ import { palette } from 'src/theme/constants'
 const clientSideEmotionCache = createEmotionCache()
 
 interface Props {
-   children: ReactChild[]
+   children: ReactChild[] | ReactChild
 }
 
 function Layout({ children }: Props) {
