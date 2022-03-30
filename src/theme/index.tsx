@@ -13,4 +13,6 @@ let theme = createTheme({
 
 theme = responsiveFontSizes(theme)
 
+export { default as GlobalStyles } from './global'
+
 export default theme
