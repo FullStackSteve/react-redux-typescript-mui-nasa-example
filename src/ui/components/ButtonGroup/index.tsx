@@ -1,5 +1,6 @@
 import { Grid, Box, Button } from '@mui/material'
 import { GlobalStyles } from 'src/theme'
+import { Link } from 'react-router-dom'
 function ButtonGroup() {
    return (
       <Grid container spacing={2} sx={{ maxWidth: 600 }}>
@@ -8,7 +9,7 @@ function ButtonGroup() {
                <Button
                   variant="contained"
                   color="secondary"
-                  onClick={() => alert('Button pressed')}
+                  onClick={() => alert('Next Button pressed')}
                >
                   Next
                </Button>
@@ -19,7 +20,7 @@ function ButtonGroup() {
                <Button
                   variant="contained"
                   color="secondary"
-                  onClick={() => alert('Button pressed')}
+                  onClick={() => alert('Save button pressed')}
                >
                   Save
                </Button>
@@ -30,7 +31,8 @@ function ButtonGroup() {
                <Button
                   variant="contained"
                   color="secondary"
-                  onClick={() => alert('Button pressed')}
+                  component={Link}
+                  to={'/favourites'}
                >
                   Favourites
                </Button>
