@@ -1,15 +1,34 @@
-import logo from 'src/logo.svg'
 import { Typography } from '@mui/material'
 import { Layout, ButtonGroup } from 'src/ui/components'
+import { useEffect } from 'react'
+import useNasaPhoto from 'src/hooks/useNasaPhoto'
 
 function Home() {
+   const { fetchPhoto, currentPhoto, isLoading } = useNasaPhoto({ count: 1 })
+
+   useEffect(() => {
+      fetchPhoto()
+   }, [])
+
+   function Image() {
+      if (isLoading) {
+         return <>Loading.</>
+      } else {
+         if (currentPhoto) {
+            return <img src={currentPhoto} alt="logo" />
+         } else {
+            return <>Loading..</>
+         }
+      }
+   }
+
    return (
       <Layout>
-         <img src={logo} className="App-logo" alt="logo" />
+         <Image />
          <Typography variant="h1" component="h1" textAlign="center" gutterBottom>
-            Edit <code>src/App.tsx</code> and save to reload.
+            {currentPhoto}
          </Typography>
-         <ButtonGroup />
+         <ButtonGroup onNextClick={() => fetchPhoto()} />
       </Layout>
    )
 }

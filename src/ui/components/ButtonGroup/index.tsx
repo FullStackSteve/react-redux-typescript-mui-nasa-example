@@ -1,16 +1,18 @@
 import { Grid, Box, Button } from '@mui/material'
 import { GlobalStyles } from 'src/theme'
 import { Link } from 'react-router-dom'
-function ButtonGroup() {
+
+interface Props {
+   onNextClick?: () => void
+   onSaveClick?: () => void
+}
+
+function ButtonGroup({ onNextClick }: Props) {
    return (
       <Grid container spacing={2} sx={{ maxWidth: 600 }}>
          <Grid item xs={12} md={4} mt={5}>
             <Box sx={{ ...GlobalStyles.flexBox }}>
-               <Button
-                  variant="contained"
-                  color="secondary"
-                  onClick={() => alert('Next Button pressed')}
-               >
+               <Button variant="contained" color="secondary" onClick={onNextClick}>
                   Next
                </Button>
             </Box>
