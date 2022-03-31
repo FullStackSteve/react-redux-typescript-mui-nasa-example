@@ -1,6 +1,5 @@
 import { Action } from 'src/redux/type'
 import * as Actions from './actions'
-
 export interface NasaPhotosState {
    currentPhoto: string | null
    favouritePhotos: string[]

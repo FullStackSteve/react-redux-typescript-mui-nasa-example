@@ -1,12 +1,12 @@
 import { combineReducers, Reducer } from 'redux'
 import { Action } from 'src/redux/type'
-import { nasaPhotosReducer } from '../nasaPhotos'
+import { nasaPhotosReducer, NasaPhotosState } from '../nasaPhotos'
 import * as Actions from './actions'
 
 const reducer: Reducer = combineReducers({ nasaPhotosReducer })
 
 export interface State {
-   nasaPhotosReducer: Reducer
+   nasaPhotosReducer: NasaPhotosState
 }
 
 export function rootReducer(state: State | undefined, action: Action): State {
@@ -17,3 +17,5 @@ export function rootReducer(state: State | undefined, action: Action): State {
          return reducer(state, action)
    }
 }
+
+export type RootState = ReturnType<typeof rootReducer>
