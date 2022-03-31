@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom'
 interface Props {
    onNextClick?: () => void
    onSaveClick?: () => void
+   isFavourite?: boolean
 }
 
-function ButtonGroup({ onNextClick }: Props) {
+function ButtonGroup({ onNextClick, onSaveClick, isFavourite = false }: Props) {
    return (
-      <Grid container spacing={2} sx={{ maxWidth: 600 }}>
+      <Grid container spacing={2} mb={5} sx={{ maxWidth: 600 }}>
          <Grid item xs={12} md={4} mt={5}>
             <Box sx={{ ...GlobalStyles.flexBox }}>
                <Button variant="contained" color="secondary" onClick={onNextClick}>
@@ -21,8 +22,8 @@ function ButtonGroup({ onNextClick }: Props) {
             <Box sx={{ ...GlobalStyles.flexBox }}>
                <Button
                   variant="contained"
-                  color="secondary"
-                  onClick={() => alert('Save button pressed')}
+                  color={isFavourite ? 'success' : 'secondary'}
+                  onClick={onSaveClick}
                >
                   Save
                </Button>
@@ -32,7 +33,7 @@ function ButtonGroup({ onNextClick }: Props) {
             <Box sx={{ ...GlobalStyles.flexBox }}>
                <Button
                   variant="contained"
-                  color="secondary"
+                  color={isFavourite ? 'info' : 'secondary'}
                   component={Link}
                   to={'/favourites'}
                >
