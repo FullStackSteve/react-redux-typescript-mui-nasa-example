@@ -4,10 +4,10 @@ import * as NasaPhotoActions from 'src/redux/nasaPhotos/actions'
 import { RootState } from 'src/redux/root'
 import { config } from 'src/config'
 
-function useNasaPhoto({ count = 1 }) {
+function useNasaPhoto(count = 1) {
    const dispatch = useDispatch()
    const state = useSelector((state: RootState) => state.nasaPhotosReducer)
-   const { currentPhoto, favouritePhotos, isLoading, isError } = state
+   const { currentPhoto, favouritePhotos, isFavourite, isLoading, isError } = state
    const { NASA_API_KEY } = config
 
    async function fetchPhoto() {
@@ -25,7 +25,19 @@ function useNasaPhoto({ count = 1 }) {
       }
    }
 
-   return { fetchPhoto, currentPhoto, favouritePhotos, isLoading, isError }
+   async function addFavourite(url?: string) {
+      dispatch({ type: NasaPhotoActions.ADD_FAVOURITE, payload: url ?? currentPhoto })
+   }
+
+   return {
+      fetchPhoto,
+      addFavourite,
+      currentPhoto,
+      favouritePhotos,
+      isFavourite,
+      isLoading,
+      isError
+   }
 }
 
 export default useNasaPhoto
