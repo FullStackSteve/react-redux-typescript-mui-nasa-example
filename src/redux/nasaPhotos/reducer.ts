@@ -5,11 +5,13 @@ export interface NasaPhotosState {
    favouritePhotos: string[]
    isLoading: boolean
    isError: boolean
+   isFavourite: boolean
 }
 
 const initialState: NasaPhotosState = {
    currentPhoto: null,
    favouritePhotos: [],
+   isFavourite: false,
    isLoading: false,
    isError: false
 }
@@ -23,13 +25,27 @@ export function nasaPhotosReducer(
          return { ...state, isLoading: true }
       }
       case Actions.FETCH_SUCCESS: {
-         return { ...state, isLoading: false, currentPhoto: action.payload }
+         return {
+            ...state,
+            isFavourite: state.currentPhoto?.includes(action.payload) ?? false,
+            isLoading: false,
+            currentPhoto: action.payload
+         }
       }
       case Actions.FETCH_ERROR: {
          return { ...state, isLoading: false, isError: true }
       }
       case Actions.ADD_FAVOURITE: {
-         return { ...state, favouritePhotos: [...state.favouritePhotos, action.payload] }
+         return {
+            ...state,
+            isFavourite: true,
+            favouritePhotos: [
+               ...state.favouritePhotos.filter(
+                  (photo: string): boolean => photo !== action.payload
+               ),
+               action.payload
+            ]
+         }
       }
       default:
          return state
