@@ -1,6 +1,5 @@
 import { Action } from 'src/redux/type'
 import * as Actions from './actions'
-
 export interface NasaPhotosState {
    currentPhoto: string | null
    favouritePhotos: string[]
@@ -24,7 +23,7 @@ export function nasaPhotosReducer(
          return { ...state, isLoading: true }
       }
       case Actions.FETCH_SUCCESS: {
-         return { ...state, isLoading: false }
+         return { ...state, isLoading: false, currentPhoto: action.payload }
       }
       case Actions.FETCH_ERROR: {
          return { ...state, isLoading: false, isError: true }
